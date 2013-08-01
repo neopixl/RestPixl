@@ -1,0 +1,7 @@
+com.neopixl.restpixl
+com.neopixl.restpixl.async
+com.neopixl.restpixl.request
+org.droidparts.contract
+org.droidparts.http
+org.droidparts.http.worker
+org.droidparts.util.io

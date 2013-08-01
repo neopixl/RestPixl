@@ -258,7 +258,6 @@ public class NPRequest extends NPAsynchTask<String, Float, Void>{
 
 			case GET:
 				setmResponse(getRESTManager().getRestClient().get(urlCalled));
-				NPLog.e("this:"+getmResponse());
 
 				break;
 
