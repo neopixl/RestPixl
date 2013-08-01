@@ -3,6 +3,10 @@
 
     <string name="app_name">RestPixlSample</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world"></string>
+    
+    <!-- Action -->
+    <string name="action_get">GET</string>
+    <string name="action_post">POST</string>
 
 </resources>

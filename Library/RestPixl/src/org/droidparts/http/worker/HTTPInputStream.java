@@ -3,7 +3,6 @@ package org.droidparts.http.worker;
 
 import static com.neopixl.restpixl.NPRestPixlConf.BUFFER_SIZE;
 
-import android.annotation.SuppressLint;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +16,7 @@ import org.apache.http.HttpResponse;
 import org.droidparts.http.HTTPException;
 import org.droidparts.util.io.IOUtils;
 
-import com.neopixl.logger.NPLog;
+import android.annotation.SuppressLint;
 
 @SuppressLint("DefaultLocale")
 class HTTPInputStream extends BufferedInputStream {
@@ -49,7 +48,6 @@ class HTTPInputStream extends BufferedInputStream {
 
 	private static InputStream getUnpackedInputStream(String contentEncoding,
 			InputStream is) throws IOException {
-		NPLog.d("Content-Encoding: " + contentEncoding);
 		if (isNotEmpty(contentEncoding)) {
 			contentEncoding = contentEncoding.toLowerCase();
 			if (contentEncoding.contains("gzip")) {

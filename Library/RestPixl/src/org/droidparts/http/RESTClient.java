@@ -18,12 +18,11 @@ import org.droidparts.http.worker.HTTPWorker;
 import org.droidparts.http.worker.HttpClientWorker;
 import org.droidparts.http.worker.HttpURLConnectionWorker;
 
-import com.neopixl.logger.NPLog;
-import com.neopixl.restpixl.NPRestPixlPreferences;
-
 import android.content.Context;
 import android.os.Build;
 import android.util.Pair;
+
+import com.neopixl.restpixl.NPRestPixlPreferences;
 
 public class RESTClient {
 
@@ -87,7 +86,6 @@ public class RESTClient {
 	//
 
 	public HTTPResponse get(String uri) throws HTTPException {
-		NPLog.i("GET on " + uri);
 		HTTPResponse response;
 		if (useHttpURLConnection()) {
 			HttpURLConnection conn = httpURLConnectionWorker.getConnection(uri,
@@ -97,13 +95,11 @@ public class RESTClient {
 			HttpGet req = new HttpGet(uri);
 			response = httpClientWorker.getReponse(req);
 		}
-		NPLog.d(response);
 		return response;
 	}
 
 	public HTTPResponse post(String uri, String contentType, String data)
 			throws HTTPException {
-		NPLog.i("POST on " + uri + ", data: " + data);
 		HTTPResponse response;
 		if (useHttpURLConnection()) {
 			HttpURLConnection conn = httpURLConnectionWorker.getConnection(uri,
@@ -115,13 +111,11 @@ public class RESTClient {
 			req.setEntity(HttpClientWorker.buildStringEntity(contentType, data));
 			response = httpClientWorker.getReponse(req);
 		}
-		NPLog.d(response);
 		return response;
 	}
 
 	public HTTPResponse put(String uri, String contentType, String data)
 			throws HTTPException {
-		NPLog.i("PUT on " + uri + ", data: " + data);
 		HTTPResponse response;
 		if (useHttpURLConnection()) {
 			HttpURLConnection conn = httpURLConnectionWorker.getConnection(uri,
@@ -133,12 +127,10 @@ public class RESTClient {
 			req.setEntity(HttpClientWorker.buildStringEntity(contentType, data));
 			response = httpClientWorker.getReponse(req);
 		}
-		NPLog.d(response);
 		return response;
 	}
 
 	public HTTPResponse delete(String uri) throws HTTPException {
-		NPLog.i("DELETE on " + uri);
 		HTTPResponse response;
 		if (useHttpURLConnection()) {
 			HttpURLConnection conn = httpURLConnectionWorker.getConnection(uri,
@@ -148,20 +140,17 @@ public class RESTClient {
 			HttpDelete req = new HttpDelete(uri);
 			response = httpClientWorker.getReponse(req);
 		}
-		NPLog.d(response);
 		return response;
 	}
 
 	public Pair<Integer, BufferedInputStream> getInputStream(String uri)
 			throws HTTPException {
-		NPLog.i("InputStream on " + uri);
 		Pair<Integer, BufferedInputStream> resp = null;
 		if (useHttpURLConnection()) {
 			resp = httpURLConnectionWorker.getInputStream(uri);
 		} else {
 			resp = httpClientWorker.getInputStream(uri);
 		}
-		NPLog.d("Content-Length: " + resp.first);
 		return resp;
 	}
 

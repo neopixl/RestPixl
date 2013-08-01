@@ -9,8 +9,8 @@ import org.droidparts.http.HTTPException;
 import org.droidparts.http.HTTPResponse;
 
 import android.content.Context;
+import android.util.Log;
 
-import com.neopixl.logger.NPLog;
 import com.neopixl.restpixl.NPRESTManager;
 import com.neopixl.restpixl.NPRequestEnum;
 import com.neopixl.restpixl.async.NPAsynchTask;
@@ -114,14 +114,14 @@ public class NPRequest extends NPAsynchTask<String, Float, Void>{
 		if(context != null){
 			setContext(context);
 		}else{
-			NPLog.i("no context setted");
+			Log.w("RestPixl","no context setted");
 		}
 
 		if(newUrl != null){
 			if(!newUrl.contains(NP_HTTP_PROTOCOL)){
 				if(!newUrl.contains(NP_HTTPS_PROTOCOL)){
 					String protocolAdded = NP_HTTP_PROTOCOL;
-					NPLog.i("no protocol "+protocolAdded.replace("/", "").replace(":", "")+" founded. Added "+protocolAdded+" protocol for url:"+newUrl);
+					Log.i("RestPixl","no protocol "+protocolAdded.replace("/", "").replace(":", "")+" founded. Added "+protocolAdded+" protocol for url:"+newUrl);
 					setUrl(protocolAdded+newUrl);
 				}
 			}else{
@@ -161,7 +161,7 @@ public class NPRequest extends NPAsynchTask<String, Float, Void>{
 		if(method!=null){
 			setMethod(method);
 		}else{
-			NPLog.e("no request method found");
+			Log.w("RestPixl","no request method found");
 		}
 
 		if(data!=null){
@@ -223,7 +223,7 @@ public class NPRequest extends NPAsynchTask<String, Float, Void>{
 		}else{
 			getmHeaders().putAll(headers);
 
-			NPLog.i("headers : "+mHeaders);
+			Log.i("RestPixl","headers : "+mHeaders);
 		}
 	}
 
@@ -303,7 +303,7 @@ public class NPRequest extends NPAsynchTask<String, Float, Void>{
 			// != 200
 			setHttpCode(e.getResponseCode());
 
-			NPLog.e("http error : "+ getHttpCode() + " url : "+resolvedUrl(isEncode()));
+			Log.e("RestPixl","http error : "+ getHttpCode() + " url : "+resolvedUrl(isEncode()));
 
 			e.printStackTrace();
 
@@ -374,7 +374,7 @@ public class NPRequest extends NPAsynchTask<String, Float, Void>{
 			try{
 				return (NPRequestListener)getContext();
 			}catch(ClassCastException e){
-				NPLog.i("Warn, "+NPRequestListener.class.getName()+" doesn't implement in "+getContext());
+				Log.i("RestPixl","Warn, "+NPRequestListener.class.getName()+" doesn't implement in "+getContext());
 				return null;
 			}
 
@@ -408,7 +408,7 @@ public class NPRequest extends NPAsynchTask<String, Float, Void>{
 				setmRestManager(NPRESTManager.getInstance(getContext()));
 				return getmRestManager();
 			}else{
-				NPLog.i(NPRESTManager.class.getName() +" need a context to work!");
+				Log.i("RestPixl",NPRESTManager.class.getName() +" need a context to work!");
 				return null;
 			}
 		}

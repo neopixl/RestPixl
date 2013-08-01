@@ -18,7 +18,7 @@ import java.net.URLEncoder;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 
-import com.neopixl.logger.NPLog;
+import android.util.Log;
 
 public class IOUtils {
 
@@ -45,7 +45,7 @@ public class IOUtils {
 					cl.close();
 				}
 			} catch (Exception e) {
-				NPLog.d(e);
+				Log.d("RestPixl",e.toString());
 			}
 		}
 	}

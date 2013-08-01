@@ -21,9 +21,8 @@ import org.droidparts.http.CookieJar;
 import org.droidparts.http.HTTPException;
 import org.droidparts.http.HTTPResponse;
 
-import com.neopixl.logger.NPLog;
-
 import android.content.Context;
+import android.util.Log;
 import android.util.Pair;
 
 public class HttpURLConnectionWorker extends HTTPWorker {
@@ -53,7 +52,7 @@ public class HttpURLConnectionWorker extends HTTPWorker {
 				}
 			}
 		} catch (Exception e) {
-			NPLog.i(e);
+			Log.i("RestPixl",e.toString());
 		}
 	}
 
@@ -173,8 +172,8 @@ public class HttpURLConnectionWorker extends HTTPWorker {
 					try {
 						host = InetAddress.getByName(authScope.getHost());
 					} catch (UnknownHostException e) {
-						NPLog.e("Failed to setup basic auth.");
-						NPLog.d(e);
+						Log.e("RestPixl","Failed to setup basic auth.");
+						Log.d("RestPixl",e.toString());
 						Authenticator.setDefault(null);
 						return;
 					}

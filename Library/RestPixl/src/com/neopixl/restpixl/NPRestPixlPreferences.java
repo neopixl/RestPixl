@@ -3,8 +3,7 @@ package com.neopixl.restpixl;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-
-import com.neopixl.logger.NPLog;
+import android.util.Log;
 
 /**
  * Get information from Manifest
@@ -21,7 +20,7 @@ public class NPRestPixlPreferences {
 	public static String getPackageName(Context context)
 	{
 		if(context==null){
-			NPLog.e("Context can't be nil");
+			Log.e("RestPixl","Context can't be nil");
 			return "ERROR";
 		}
 		try {
@@ -30,8 +29,8 @@ public class NPRestPixlPreferences {
 			return pinfo.packageName;
 
 		} catch (NameNotFoundException e) {
-			NPLog.e("Can't found package=\"...\" value in manifest");
-			NPLog.e("Error log:\n"+e.getStackTrace());
+			Log.e("RestPixl","Can't found package=\"...\" value in manifest");
+			Log.e("RestPixl","Error log:\n"+e.getStackTrace());
 			return "ERROR";
 		}
 	}
@@ -44,7 +43,7 @@ public class NPRestPixlPreferences {
 	public static int getVersionCode(Context context)
 	{
 		if(context==null){
-			NPLog.e("Context can't be nil");
+			Log.e("RestPixl","Context can't be nil");
 			return -1;
 		}
 		try {
@@ -53,8 +52,8 @@ public class NPRestPixlPreferences {
 			return pinfo.versionCode;
 
 		} catch (NameNotFoundException e) {
-			NPLog.e("Can't found android:versionCode=\"...\" value in manifest");
-			NPLog.e("Error log:\n"+e.getStackTrace());
+			Log.e("RestPixl","Can't found android:versionCode=\"...\" value in manifest");
+			Log.e("RestPixl","Error log:\n"+e.getStackTrace());
 			return -1;
 		}
 	}
@@ -67,7 +66,7 @@ public class NPRestPixlPreferences {
 	public static String getVersionName(Context context)
 	{
 		if(context==null){
-			NPLog.e("Context can't be nil");
+			Log.e("RestPixl","Context can't be nil");
 			return "ERROR";
 		}
 		try {
@@ -76,8 +75,8 @@ public class NPRestPixlPreferences {
 			return pinfo.versionName;
 
 		} catch (NameNotFoundException e) {
-			NPLog.e("Can't found android:versionName=\"...\" value in manifest");
-			NPLog.e("Error log:\n"+e.getStackTrace());
+			Log.e("RestPixl","Can't found android:versionName=\"...\" value in manifest");
+			Log.e("RestPixl","Error log:\n"+e.getStackTrace());
 			return "ERROR";
 		}
 	}

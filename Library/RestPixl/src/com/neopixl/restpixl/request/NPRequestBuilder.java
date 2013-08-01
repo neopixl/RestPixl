@@ -1,6 +1,6 @@
 package com.neopixl.restpixl.request;
 
-import com.neopixl.logger.NPLog;
+import android.util.Log;
 
 /**
  * NPRequestBuilder
@@ -79,9 +79,9 @@ public class NPRequestBuilder {
 			newRequest = NPDELETERequest.rebuildNPDELETERequestWith((NPDELETERequest) request, delegate);
 		}else{
 			if(request instanceof NPRequest){
-				NPLog.e("NPRequest can't used directly (used child)");
+				Log.e("RestPixl","NPRequest can't used directly (used child)");
 			}else{
-				NPLog.e("unrecognized object:"+request.getClass().getName());
+				Log.e("RestPixl","unrecognized object:"+request.getClass().getName());
 			}
 		}
 

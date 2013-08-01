@@ -27,11 +27,10 @@ import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.impl.cookie.BrowserCompatSpec;
 import org.apache.http.message.BasicHeader;
 
-import com.neopixl.logger.NPLog;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.util.Log;
 
 public class CookieJar extends CookieHandler implements CookieStore {
 
@@ -87,7 +86,7 @@ public class CookieJar extends CookieHandler implements CookieStore {
 
 	@Override
 	public void addCookie(Cookie cookie) {
-		NPLog.d("Got a cookie: " + cookie);
+		Log.d("RestPixl","Got a cookie: " + cookie);
 		for (Iterator<Cookie> it = cookies.iterator(); it.hasNext();) {
 			Cookie c = it.next();
 			if (isEqual(cookie, c)) {
@@ -146,7 +145,7 @@ public class CookieJar extends CookieHandler implements CookieStore {
 			try {
 				cookies.addAll(cookieSpec.parse(header, origin));
 			} catch (MalformedCookieException e) {
-				NPLog.d(e);
+				Log.d("RestPixl",e.toString());
 			}
 		}
 		return cookies;
