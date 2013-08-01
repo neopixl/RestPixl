@@ -21,3 +21,10 @@ Provides
 -Single instance of RestClient to have a keep alive connexion with the server
 
 -Works with old API 
+
+
+How use it
+========
+
+1. Simply import [RestPixl-1.0.0-SNAPSHOT.jar](https://github.com/neopixl/RestPixl/raw/master/Sample/RestPixlSample/libs/RestPixl-1.0.0-SNAPSHOT.jar "RestPixl-1.0.0-SNAPSHOT.jar") in your project.
+2. Ready to call web service !
