@@ -69,7 +69,7 @@ public class MainActivity extends Activity implements NPRequestListener {
 		textViewContentJson.setText("");
 		//Get Request
 		NPGETRequest request = new NPGETRequest(getContext(),RESTPIXL_SAMPLE_GET_URL,null,true,null,null,null);
-
+		
 		request.setListener(this);
 
 		NPBackgroundLoadingManager.queueInteractiveRequest(request);
