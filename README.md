@@ -28,3 +28,6 @@ How use it
 
 1. Simply import [RestPixl-1.0.0-SNAPSHOT.jar](https://github.com/neopixl/RestPixl/raw/master/Sample/RestPixlSample/libs/RestPixl-1.0.0-SNAPSHOT.jar "RestPixl-1.0.0-SNAPSHOT.jar") in your project.
 2. Ready to call web service !
+3. Use NPGETRequest, NPPOSTRequest, NPPUTRequest or NPDELETERequest
+4. Don't forget implement request listener
+5. Use request priority with NPBackgroundLoadingManager class
