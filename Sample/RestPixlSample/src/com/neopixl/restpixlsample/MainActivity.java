@@ -78,8 +78,8 @@ public class MainActivity extends Activity implements NPRequestListener {
 	private void launchPOSTRequest()
 	{
 		textViewContentJson.setText("");
+		
 		//Post Request
-
 		Mooder aMooder = new Mooder("id", "Demolliens", "Olivier", "http://noUrl", null, null);
 
 		Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
