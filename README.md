@@ -10,17 +10,20 @@ Several corrections have been made to support the old API
 Provides
 ========
 
--Works with basics auth
+- Works with basics auth
 
--Works with request priority
+- Works with request priority
 
--Queue service available
+- Queue service available
 
--GET/POST/PUT/DELETE available
+- GET/POST/PUT/DELETE available
 
--Single instance of RestClient to have a keep alive connexion with the server
+- Single instance of RestClient to have a keep alive connexion with the server
 
--Works with old API 
+- Works with old API 
+
+- Uses compression & http caching on API > 13.
+- Supports in and out headers.
 
 
 How use it
