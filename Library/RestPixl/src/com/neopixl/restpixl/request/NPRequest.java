@@ -123,6 +123,8 @@ public class NPRequest extends NPAsynchTask<String, Float, Void>{
 					String protocolAdded = NP_HTTP_PROTOCOL;
 					Log.i("RestPixl","no protocol "+protocolAdded.replace("/", "").replace(":", "")+" founded. Added "+protocolAdded+" protocol for url:"+newUrl);
 					setUrl(protocolAdded+newUrl);
+				}else{
+					setUrl(newUrl);
 				}
 			}else{
 				setUrl(newUrl);
